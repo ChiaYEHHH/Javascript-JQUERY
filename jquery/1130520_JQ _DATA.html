@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
+    <style>
+        .container {
+            width: 300px;
+            height: 300px;
+            border: 2px solid black;
+        }
+        .container2{
+            width: 600px;
+            height: 500px;
+            border: 2px solid black;
+        }
+        .showbox{
+            width: 400px;
+            height: 400px;
+            display: flex;
+            background-repeat: no-repeat;
+            background-size: cover;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="container"></div><br>
+    <div>
+        <!-- <button id="black_btn" onclick="document.getElementById('result_p').innerHTML">BLACK</button> -->
+        <button id="black_btn" class="myBTN" data-color="black" data-text="BLACK" data-img="totoro01.jpg">BLACK</button>
+        <button id="red_btn" class="myBTN" data-color="red" data-text="RED" data-img="totoro02.jpg">RED</button>
+        <button id="blue_btn" class="myBTN" data-color="blue" data-text="BLUE" data-img="totoro03.jpg">BLUE</button>
+    </div>
+    <p class="resultSpan">hello this is black button</p>
+<hr>
+<div class="container2">
+<div class="filename"></div>
+    <div class="showbox">
+        <p>picName=<span id="imgName">totoro01.jpg</span></p>
+        <br>
+        <img id="myImg" src="./pic/totoro01.jpg" alt="">
+        
+    </div>
+</div>
+    <script>
+        $(document).ready(function () {
+            // 1.宣告 綁定
+        //    const blackbtn=$('#black_btn');
+        //    const bluebtn=$('#blue_btn');
+        //    const redbtn=$('#red_btn');
+           const mybtn=$('.myBTN');
+        //    const resultSpan=$('.resultSpan');
+           const myImg=$('#myImg');
+           const imgNameSpan=$('#imgName');
+            // 2.action / method / function
+           
+            mybtn.click(function(){
+                console.log('this', this);
+                console.log('$(this)', $(this));
+                let Bbtn=$(this);
+                let getDataColor = Bbtn.attr('data-color');
+                //getDataColor = 'red';
+                let getDataText = Bbtn.attr('data-text');
+                //getDataText = 'RED';
+                let getDataUrl=Bbtn.attr('data-img');
+                // let imgUrl=`./pic/${getDataImg}`;
+                let imgUrl=`./pic/${getDataUrl}`;
+                console.log('getUrl', getDataUrl);
+                console.log('getimg', imgUrl);
+                // resultSpan.css('color', getDataColor);
+                // color: red
+                // resultSpan.text(getDataText);
+                // myImg.attr('src',imgNameSpan);
+                myImg.attr('src',imgUrl);
+                // src='imgUrl'
+                imgNameSpan.text(getDataUrl);
+            })
+
+        });
+    </script>
+
+</body>
+
+</html>

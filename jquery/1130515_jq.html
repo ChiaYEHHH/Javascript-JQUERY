@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>JQUERY</title>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
+
+</head>
+
+<body>
+    <div id="red">
+        red
+    </div>
+
+    <div id="green">
+        green
+    </div>
+
+    <div id="blue">
+        blue
+    </div>
+    <script>
+
+        $(document).ready(function () {
+            $('#red').css('color', 'red');
+            $('#red').css('background-color', '#ccc');
+
+            $('#green').css('color', 'green');
+            $('#blue').css('color', 'blue');
+            })
+    </script>
+    <hr>
+    <!-- JQ -->
+    <h1>
+        A heading
+    </h1>
+    <a href="" id="myA">Link text</a>
+    <p class="myP">
+        Lorem ipsum dolor sit amet.
+    </p>
+
+    <script>
+        // 方法一
+        $(document).ready(function () {
+            // h1 -> blue
+            $('h1').css('color', 'blue');
+            $('#myA').css('color', 'red');
+            $('.myP').css('color','green');
+
+            // $('h1 , #myA , .myP').css('font-size', '16px');
+            $('h1 , #myA , .myP').css(('background-color', '#ccc'),('font-size', '16px'));
+            
+        });
+
+    </script>
+</body>
+
+</html>

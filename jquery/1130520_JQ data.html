@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
+    <style>
+        .container {
+            width: 300px;
+            height: 300px;
+            border: 2px solid black;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="container"></div><br>
+    <div>
+        <!-- <button id="black_btn" onclick="document.getElementById('result_p').innerHTML">BLACK</button> -->
+        <button id="black_btn">BLACK</button>
+        <button id="red_btn" data-color="red" data-text="REDDDDDD">RED</button>
+        <button id="blue_btn" class="myBTN">BLUE</button>
+    </div>
+    <p class="resultSpan">hello this is black button</p>
+
+    <script>
+        $(document).ready(function () {
+            // 1.宣告 綁定
+            const blackbtn = $('#black_btn');
+            const bluebtn = $('#blue_btn');
+            const redbtn = $('#red_btn');
+            
+            const resultdiv = $('.container');
+            const resultSpan = $('.resultSpan');
+            // console.log 確認是否綁定
+            console.log('bluebtnokkkk', bluebtn);
+            
+            // 2.action / method / function
+            redbtn.click(function () {
+                resultSpan.text('RED BUTTON');
+                resultSpan.css('color', 'red');
+                resultdiv.css('background', 'red');
+
+                let getDataColor = redbtn.attr('data-color');
+                let getDataText = redbtn.attr('data-text');
+                console.log('getDataColor', getDataColor);
+                console.log('getDataText', getDataText);
+                resultSpan.text(getDataText);
+                resultSpan.css('color', getDataColor);
+
+            });
+
+            bluebtn.click(function () {
+                resultSpan.text('BLUE BUTTON');
+                resultSpan.css('color', 'blue');
+                resultdiv.css('background', 'blue');
+            });
+
+            blackbtn.click(function () {
+                resultSpan.text('BLACK BUTTON');
+                resultSpan.css('color', 'black');
+                resultdiv.css('background', 'black');
+            });
+
+        });
+    </script>
+
+</body>
+
+</html>

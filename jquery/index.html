@@ -1,0 +1,175 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <!-- 引入BOOTSTRAP 的 CSS 檔案 -->
+    <!-- 該css檔案是使用在元件常用的css樣是外觀 -->
+    <link rel="stylesheet" href="./CSS/bootstrap.css">
+</head>
+
+<body>
+    <h1>Bootstrap 斷點</h1>
+    <p>分為 0(xs 不用寫)、576(sm)、768(md)、992(lg)、1200(xl)、1400(xxl) 這六種</p>
+    <h1>容器分為兩種</h1>
+    <p>固定容器是響應式的，可以隨著斷點去改變寬度</p>
+    <div class="container bg-primary">固定容器 .container</div>
+    <p>滿版容器永遠維持100%寬度</p>
+    <div class="containerfluid bg-info">滿版容器 .containerfluid</div>
+
+    <hr>
+
+    <div class="container">
+        <h1>網格系統</h1>
+        <p>row是列 col是欄</p>
+        <div class="row">
+            <div class="col bg-danger">
+                Column
+            </div>
+            <div class="col bg-success">
+                Column
+            </div>
+            <div class="col bg-">
+                Column
+            </div>
+        </div>
+    </div>
+
+
+    <hr>
+    <div class="container">
+        <div class="row">
+            <div class="col">平均分配剩下的6等分，是3等分
+                1 of 3
+            </div>
+            <div class="col-6"> 先拿6等分
+                2 of 3 (wider)
+            </div>
+            <div class="col">平均分配剩下的6等分，是3等分
+                3 of 3
+            </div>
+        </div>
+        <div class="row">
+            <div class="col">
+                1 of 3
+            </div>
+            <div class="col-5">
+                2 of 3 (wider)
+            </div>
+            <div class="col">
+                3 of 3
+            </div>
+        </div>
+    </div>
+
+    <div class="container">
+        <div class="row justify-content-md-center">
+            <div class="col col-lg-2">
+                1 of 3
+            </div>
+            <div class="col-md-auto">
+                Variable width content
+            </div>
+            <div class="col col-lg-2">
+                3 of 3
+            </div>
+        </div>
+        <div class="row">
+            <div class="col">
+                1 of 3
+            </div>
+            <div class="col-md-auto">
+                Variable width content
+            </div>
+            <div class="col col-lg-2">
+                3 of 3
+            </div>
+        </div>
+    </div>
+
+    <hr>
+
+    <div class="container">
+        <h1>範例-卡片</h1>
+        <div class="row">
+            <div class="col-12 col-md-6 col-xl-4 bg-primary">
+                <div class="card">
+                    <img src="https://picsum.photos/300/200/?random=10" class="card-img-top" alt="...">
+                    <div class="card-body">
+                        <h5 class="card-title">Card title</h5>
+                        <p class="card-text">Some quick example text to build on the card title and make up the bulk of
+                            the card's content.</p>
+                        <a href="#" class="btn btn-primary">Go somewhere</a>
+                    </div>
+                </div>
+            </div>
+            <div class="col-12 col-md-6 col-xl-4 bg-info">
+                <div class="card">
+                    <img src="https://picsum.photos/300/200/?random=10" class="card-img-top" alt="...">
+                    <div class="card-body">
+                        <h5 class="card-title">Card title</h5>
+                        <p class="card-text">Some quick example text to build on the card title and make up the bulk of
+                            the card's content.</p>
+                        <a href="#" class="btn btn-primary">Go somewhere</a>
+                    </div>
+                </div>
+            </div>
+            <div class="col-12 col-md-6 col-xl-4 bg-danger">
+                <div class="card">
+                    <img src="https://picsum.photos/300/200/?random=10" class="card-img-top" alt="...">
+                    <div class="card-body">
+                        <h5 class="card-title">Card title</h5>
+                        <p class="card-text">Some quick example text to build on the card title and make up the bulk of
+                            the card's content.</p>
+                        <a href="#" class="btn btn-primary">Go somewhere</a>
+                    </div>
+                </div>
+            </div>
+            <div class="col-12 col-md-6 col-xl-4 bg-primary">
+                <div class="card">
+                    <img src="https://picsum.photos/300/200/?random=10" class="card-img-top" alt="...">
+                    <div class="card-body">
+                        <h5 class="card-title">Card title</h5>
+                        <p class="card-text">Some quick example text to build on the card title and make up the bulk of
+                            the card's content.</p>
+                        <a href="#" class="btn btn-primary">Go somewhere</a>
+                    </div>
+                </div>
+            </div>
+            <div class="col-12 col-md-6 col-xl-4 bg-info">
+                <div class="card">
+                    <img src="https://picsum.photos/300/200/?random=10" class="card-img-top" alt="...">
+                    <div class="card-body">
+                        <h5 class="card-title">Card title</h5>
+                        <p class="card-text">Some quick example text to build on the card title and make up the bulk of
+                            the card's content.</p>
+                        <a href="#" class="btn btn-primary">Go somewhere</a>
+                    </div>
+                </div>
+            </div>
+            <div class="col-12 col-md-6 col-xl-4 bg-danger">
+                <div class="card">
+                    <img src="https://picsum.photos/300/200/?random=10" class="card-img-top" alt="...">
+                    <div class="card-body">
+                        <h5 class="card-title">Card title</h5>
+                        <p class="card-text">Some quick example text to build on the card title and make up the bulk of
+                            the card's content.</p>
+                        <a href="#" class="btn btn-primary">Go somewhere</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+    
+
+    <!-- 引入BOOTSTRAP 的 JS檔案 -->
+    <!-- 該js檔案是使用在元件的互動功能 -->
+    <script src="./JS/bootstrap.bundle.js"></script>
+</body>
+
+</html>
+

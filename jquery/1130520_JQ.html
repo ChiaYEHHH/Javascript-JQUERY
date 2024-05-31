@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
+<style>
+    .container{
+        width: 300px;
+        height: 300px;
+        border: 2px solid black;
+    }
+</style>
+</head>
+<body>
+    <div class="container"></div>
+    <div>
+        <!-- <button id="black_btn" onclick="document.getElementById('result_p').innerHTML">BLACK</button> -->
+        <button id="black_btn">BLACK</button>
+        <button id="red_btn">RED</button>
+        <button id="blue_btn">BLUE</button>
+    </div>
+<p id="resultSpan">hello this is black button</p>
+
+<script>
+ $(document).ready(function () {
+// 1.宣告 綁定
+const blackbtn=$('#black_btn');
+const bluebtn=$('#blue_btn');
+const redbtn=$('#red_btn');
+resultdiv=$('.container');
+resultspan=$('#resultSpan');
+// console.log 確認綁定
+console.log('bluebtnokkkk' , bluebtn );
+
+// 2.action / method / function
+bluebtn.click(function () {
+    resultspan.text('BLUE BUTTON');
+    resultspan.css('color','blue');
+    resultdiv.css('background','blue');
+});
+
+redbtn.click(function () {
+    resultspan.text('RED BUTTON');
+    resultspan.css('color','red');
+    resultdiv.css('background','red');
+});
+
+blackbtn.click(function () {
+    resultspan.text('BLACK BUTTON');
+    resultspan.css('color','black');
+    resultdiv.css('background','black');
+});
+
+ });
+
+</script>
+
+</body>
+</html>
