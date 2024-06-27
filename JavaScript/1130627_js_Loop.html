@@ -53,21 +53,71 @@
 
         console.log('result:', result);
     </script>
+
     <!-- 99乘法表 -->
+    <table id="myP" class="w-100 text-center">
+
+    </table>
     <script>
+        const myP = document.getElementById('myP');
+        // myP.innerHTML = `
+        //   i1 j123456789 <br>
+        //   i2 j123456789<br>
+        //   i3 j123456789<br>
+        // `;
         // for
+        let rowText = ``;
         for (let i = 1; i <= 9; i++) {
-            console.log(`i = ${i}`);
-            let rowText = ``;
+            // console.log(`i = ${i}`);
+            rowText += "<tr>";
             for (let j = 1; j <= 9; j++) {
                 // console.log(` ===> j = ${j}`);
                 // console.log(` ===> ${i} * ${j} = ${i*j}`);
-                let tmpText = `${i} * ${j} = ${i * j} `;
+                let sum = i * j;
+                let ti = i.toString().padStart(2, "0");
+                let tj = j.toString().padStart(2, "0");
+                let tc = sum.toString().padStart(2, "0");
+
+                let tmpText = `<td class="border">${ti} * ${tj} = ${tc} </td>`;
                 // console.log('tmpText', tmpText);
-                rowText = rowText + tmpText;
+                rowText += tmpText;
             }
-            console.log('rowText :', rowText);
+            // console.log('rowText :', rowText);
+            rowText += "</tr>";
         }
+        // console.log('myp ok', myP);
+        myP.innerHTML = rowText;
+    </script>
+    <hr>
+    <div class="container" id="container99">
+        <div class="row">
+            row
+            <div class="col">
+                col
+            </div>
+        </div>
+    </div>
+    <script>
+        const con99 = document.getElementById('container99');
+        console.log('con99 OK', con99);
+        // con99.innerHTML = "123";
+        let row99 = '';
+        for (let i = 1; i <= 9; i++) {
+            let col99 = '';
+            for (let j = 1; j <= 9; j++) {
+                let sum = i * j;
+                let ti = i.toString().padStart(2, "0");
+                let tj = j.toString().padStart(2, "0");
+                let tc = sum.toString().padStart(2, "0");
+                col99 += `<div class="col border"> ${ti} * ${tj} = ${tc} </div>` ;
+                console.log('col99 OK', col99);
+            }
+            row99 += `<div class="row">${col99} </div>`;
+            console.log('row99 OK', row99);
+
+        }
+        con99.innerHTML = row99;
+
     </script>
 </body>
 
