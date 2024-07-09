@@ -15,34 +15,16 @@
 <body>
     <div class="container mt-5 text-center">
         <div class="row" id="items">
-            <div class="col-sm-12 col-md-6 col-lg-3 mt-2 mb-3">
-                <div class="card">
-                    <img class="img-fluid" src="./images/coffee.jpg" class="card-img-top" alt="...">
-                    <div class="card-body">
-                        <btn class="btn btn-sm btn-primary m-2 btn-cart">Add</btn>
-                        <h5 class="myTitle">Coffee</h5>
 
-                        <div class="input-group m-1">
-                            <span class="input-group-text">數量</span>
-                            <input type="text" class="form-control myCount text-center" min="0">
-                        </div>
-                        <div class="input-group m-1">
-                            <span class="input-group-text">單價</span>
-                            <input type="text" class="form-control myPrice text-center" value="50" disabled>
-                        </div>
-                        <div class="input-group m-1">
-                            <span class="input-group-text">金額</span>
-                            <input type="text" class="form-control myTotal text-center" disabled>
-                        </div>
-                    </div>
-                </div>
-            </div>
         </div>
-        <div class="row">
+        <div class="row mb-5">
             <div class="input-group mt-5">
                 <span class="input-group-text">總金額</span>
                 <input type="text" id="mySum" class="form-control  text-center" disabled>
             </div>
+            <p>
+                <ul class="text-center" id="result"></ul>
+            </p>
 
         </div>
     </div>
@@ -51,35 +33,12 @@
 
 </html>
 <script>
-
-    let data = [
-        {
-            img: './images/coffee.jpg',
-            myTitle: "Coffee",
-            myPrice: '100',
-        },
-        {
-            img: './images/juice.jpg',
-            myTitle: "Juice",
-            myPrice: '80'
-        },
-        {
-            img: './images/milktea.jpg',
-            myTitle: "Milk Tea",
-            myPrice: '95',
-        },
-        {
-            img: './images/lemon.jpg',
-            myTitle: "Lemon Tea",
-            myPrice: '700',
-        },
-    ];
-
-
+    // 計算金額
     function calculateTotal(key) {
         let mytotal = Number(count[key].value) * Number(price[key].value);
         total[key].value = mytotal;
     }
+    // 計算總金額
     function calculateSum(key) {
         let mySum = 0;
         total.forEach((value, key) => {
@@ -87,37 +46,154 @@
         });
         sum.value = mySum;
     }
+
+    // 列出  mytitle count total
+    function purchaseList() {
+        let myList = '';
+        item.forEach((value, key) => {
+            let itemCount = count[key].value;
+            let itemTotal = total[key].value;
+            if (itemCount > 0) {
+                myList += `
+                    <li class="text-center">${value.myTitle}: 數量 ${itemCount}, 金額 ${itemTotal}</li>
+                `;
+            }
+        });
+        result.innerHTML = myList;
+    }
+
+    const items = document.getElementById("items");
+    // console.log('items',items);
+
+    // 商品陣列
+    let item = [
+        {
+            img: './images/coffee.jpg',
+            myTitle: "Coffee 1",
+            myPrice: '100',
+        },
+        {
+            img: './images/juice.jpg',
+            myTitle: "Juice 1",
+            myPrice: '80'
+        },
+        {
+            img: './images/milktea.jpg',
+            myTitle: "Milk Tea 1",
+            myPrice: '95',
+        },
+        {
+            img: './images/lemon.jpg',
+            myTitle: "Lemon Tea 1",
+            myPrice: '70',
+        },
+        {
+            img: './images/coffee.jpg',
+            myTitle: "Coffee 2",
+            myPrice: '200',
+        },
+        {
+            img: './images/juice.jpg',
+            myTitle: "Juice 2",
+            myPrice: '280'
+        },
+        {
+            img: './images/milktea.jpg',
+            myTitle: "Milk Tea 2",
+            myPrice: '295',
+        },
+        {
+            img: './images/lemon.jpg',
+            myTitle: "Lemon Tea 2",
+            myPrice: '270',
+        },
+        {
+            img: './images/coffee.jpg',
+            myTitle: "Coffee 3",
+            myPrice: '300',
+        },
+        {
+            img: './images/juice.jpg',
+            myTitle: "Juice 3",
+            myPrice: '380'
+        },
+        {
+            img: './images/milktea.jpg',
+            myTitle: "Milk Tea 3",
+            myPrice: '395',
+        },
+        {
+            img: './images/lemon.jpg',
+            myTitle: "Lemon Tea 3",
+            myPrice: '370',
+        },
+    ];
+
+    // 資料顯示
+    let data = '';
+    item.forEach(value => {
+        data += `
+        <div class="col-sm-12 col-md-6 col-lg-3 mt-2 mb-3">
+                <div class="card">
+                    <img class="img-fluid" src="${value.img}" class="card-img-top" alt="...">
+                    <div class="card-body">
+                        <button class="btn btn-sm btn-primary m-2 btn-cart">Add</button>
+                        <h5 class="myTitle">${value.myTitle}</h5>
+
+                        <div class="input-group m-1">
+                            <span class="input-group-text">數量</span>
+                            <input type="text" class="form-control myCount text-center" min="0">
+                        </div>
+                        <div class="input-group m-1">
+                            <span class="input-group-text">單價</span>
+                            <input type="text" class="form-control myPrice text-center" value="${value.myPrice}" disabled>
+                        </div>
+                        <div class="input-group m-1">
+                            <span class="input-group-text">金額</span>
+                            <input type="text" class="form-control myTotal text-center" disabled>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        `;
+    });
+    items.innerHTML = data;
+
+
     const btn = document.querySelectorAll(".btn-cart");
     const price = document.querySelectorAll(".myPrice");
     const total = document.querySelectorAll(".myTotal");
     const count = document.querySelectorAll(".myCount");
     const sum = document.getElementById("mySum");
     const result = document.getElementById("result");
-    const items = document.getElementById("items");
-    console.log('sum',sum);
+
+    // console.log('sum', sum);
 
     btn.forEach((value, key) => {
         value.addEventListener('click', function () {
             // console.log(this);
             let mycount = Number(count[key].value);
-            mycount++; 
+            mycount++;
             count[key].value = mycount;
             calculateTotal(key);
             calculateSum();
+            purchaseList(key);
         });
     });
-   
+
     count.forEach((value, key) => {
-        input.addEventListener('change', function () {
+        value.addEventListener('change', function () {
             calculateTotal(key);
             calculateSum();
+            // purchaseList(key);
         });
     });
 
     price.forEach((value, key) => {
-        input.addEventListener('change', function () {
+        value.addEventListener('change', function () {
             calculateTotal(key);
             calculateSum();
+            // purchaseList(key);
         });
     });
 
