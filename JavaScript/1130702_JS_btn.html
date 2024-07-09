@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+</head>
+
+<body>
+    <div class="container">
+        <div class="row">
+            <div class="col">
+                <button class="btn btn-danger m-3" data-color="bg-danger" data-photo="20" type="button"
+                    id="myBtn">red</button>
+                <button class="btn btn-warning m-3" data-color="bg-warning" data-photo="22" type="button"
+                    id="myBtn">yellow</button>
+                <button class="btn btn-success m-3" data-color="bg-success" data-photo="23" type="button"
+                    id="myBtn">green</button>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col mt-5">
+                <div class="box border" id="box" style="width: 500px;height: 300px;">
+                    <img class="myImg img-fluid" src="" alt="" srcset="">
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        const btn = document.querySelectorAll('.btn');
+        // const myBtn = document.querySelectorAll('#myBtn');
+        const box = document.getElementById('box');
+        const myImg = document.getElementsByClassName('myImg');
+        console.log('btn ok', btn);
+        console.log('mybtn ok', myBtn);
+        console.log('box ok', box);
+        console.log('img ok', myImg);
+        btn.forEach(function (value, key) {
+            value.addEventListener('click', function () {
+                console.log('this', this);
+
+                let getDataColor = this.getAttribute('data-color');
+                let getDataPhoto = this.getAttribute('data-photo');
+                console.log('color',getDataColor);
+                box.setAttribute('class', `border text-center p-5 ${getDataColor}`);
+
+            })
+        });
+        
+    </script>
+
+</body>
+
+</html>

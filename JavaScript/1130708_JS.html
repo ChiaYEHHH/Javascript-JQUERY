@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+    <link rel="stylesheet"
+        href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@6.4.2/css/fontawesome.min.css"
+        integrity="sha384-BY+fdrpOd3gfeRvTSMT+VUZmA728cfF9Z2G42xpaRkUGu2i3DyzpTURDo5A6CaLK" crossorigin="anonymous">
+</head>
+
+<body>
+    <div class="container mt-5 text-center">
+        <form>
+            <div class="row align-content-center">
+                <div class="col-3">
+                    <img class="img-fluid" src="./images/coffee.jpg" alt="" srcset="">
+                </div>
+                <div class="col-3">
+                    <div>
+                        <button type="button" class="btn btn-outline-info btn-lg" id="btn_Coffee">咖啡</button>
+                    </div>
+                    <div>
+                        <input type="text" class="mt-3 form-control text-center" id="coffee_Price" placeholder="價格"
+                            name="price" value="100">
+                    </div>
+                </div>
+                <div class="col-3">
+                    <input type="text" class="form-control text-center" id="coffee_Count" placeholder="數量" name="count">
+                </div>
+                <div class="col-3">
+                    <input type="text" class="form-control text-center" id="coffee_Total" placeholder="金額" disabled>
+                </div>
+            </div>
+            <div class="row align-content-center mt-3">
+                <div class="col-3">
+                    <img class="img-fluid" src="./images/coffee.jpg" alt="" srcset="">
+                </div>
+                <div class="col-3">
+                    <div>
+                        <button type="button" class="btn btn-outline-info btn-lg" id="btn_Mt">奶茶</button>
+                    </div>
+                    <div>
+                        <input type="text" class="mt-3 form-control text-center" id="mt_Price" placeholder="價格"
+                            name="price" value="50">
+                    </div>
+                </div>
+                <div class="col-3">
+                    <input type="text" class="form-control text-center" id="mt_Count" placeholder="數量" name="count">
+                </div>
+                <div class="col-3">
+                    <input type="text" class="form-control text-center" id="mt_Total" placeholder="金額" disabled>
+                </div>
+            </div>
+
+           
+            <div>
+                <input type="text" class="col-5 mt-3 text-center" id="sum_Total" placeholder="總額" disabled>
+            </div>
+        </form>
+
+        <button id="btn_Sum">總額</button>
+    </div>
+
+</body>
+
+</html>
+<script>
+    const btn = document.getElementById("btn_Coffee");
+    const p = document.getElementById("coffee_Count");
+    const price = document.getElementById("coffee_Price");
+    const totalPrice = document.getElementById("coffee_Total");
+    const btnMt = document.getElementById("btn_Mt");
+    const pMt = document.getElementById("mt_Count");
+    const priceMt = document.getElementById("mt_Price");
+    const totalPriceMt = document.getElementById("mt_Total");
+
+    const totalSum = document.getElementById("sum_Total");
+    const btnSum = document.getElementById("btn_Sum");
+
+    btn.addEventListener("click", function () {
+        let count = Number(p.value);
+        count += 1; // 每次點擊時增加 i 的值
+        p.value = count; // 將 i 的值設置為 p 的 innerText
+
+        let coffeePrice = Number(price.value);
+        let total = count * coffeePrice; // 計算總金額
+        // console.log(total);
+
+        totalPrice.value = total; // 將總金額設置為 totalPrice 的 value
+    });
+    btnMt.addEventListener("click", function () {
+        let countMt = Number(pMt.value);
+        countMt += 1; // 每次點擊時增加 i 的值
+        pMt.value = countMt; // 將 i 的值設置為 p 的 innerText
+
+        let mtPrice = Number(priceMt.value);
+        let totalMt = countMt * mtPrice; // 計算總金額
+        // console.log(totalMt);
+
+        totalPriceMt.value = totalMt; // 將總金額設置為 totalPrice 的 value
+    });
+
+    document.getElementById("btn_Sum").addEventListener("click", function () {
+                let sum = 0;
+                sum += Number(totalPrice.value) + Number(totalPriceMt.value); // 計算兩者總金額
+
+                totalSum.value = sum; // 更新總額輸入框
+            });
+
+
+
+</script>
