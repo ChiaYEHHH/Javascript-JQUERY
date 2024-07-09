@@ -41,7 +41,7 @@
         <div class="row">
             <div class="input-group mt-5">
                 <span class="input-group-text">總金額</span>
-                <input type="text" class="form-control mySum text-center" disabled>
+                <input type="text" id="mySum" class="form-control  text-center" disabled>
             </div>
 
         </div>
@@ -85,7 +85,7 @@
         total.forEach((value, key) => {
             mySum += Number(total[key].value);
         });
-        sum.value = 123;
+        sum.value = mySum;
     }
     const btn = document.querySelectorAll(".btn-cart");
     const price = document.querySelectorAll(".myPrice");
@@ -94,19 +94,19 @@
     const sum = document.getElementById("mySum");
     const result = document.getElementById("result");
     const items = document.getElementById("items");
-    // console.log(btn);
+    console.log('sum',sum);
 
     btn.forEach((value, key) => {
         value.addEventListener('click', function () {
             // console.log(this);
             let mycount = Number(count[key].value);
-            mycount++; // 每次點擊時增加 mycount 的值
-            count[key].value = mycount; // 將 mycount 的值設置為 count 的 value
+            mycount++; 
+            count[key].value = mycount;
             calculateTotal(key);
-            calculateSum(); // 更新總和
+            calculateSum();
         });
     });
-    // 當價格或數量改變時更新總計值
+   
     count.forEach((value, key) => {
         input.addEventListener('change', function () {
             calculateTotal(key);
